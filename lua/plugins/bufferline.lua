@@ -19,6 +19,6 @@ return {
             highlights = require("nord.plugins.bufferline").akinsho(),
         })
 
-        vim.keymap.set('n', '<Leader>bl', ':BufferLinePick<CR>', {})
+        vim.keymap.set('n', '<Leader>st', ':BufferLinePick<CR>', { desc = 'Switch tabs' })
     end,
 }
