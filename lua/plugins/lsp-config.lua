@@ -18,10 +18,11 @@ return {
 					"gofumpt", -- Golang
 					"goimports-reviser",
                     "golines",
+                    "codelldb", -- DAP
 				},
 				run_on_start = true,
 				start_delay = 3000,
-				debounce_hours = 5,
+				-- debounce_hours = 5,
 			})
 		end,
 	},
@@ -73,6 +74,7 @@ return {
 					"lua_ls",
 					"pylsp",
 					"gopls",
+                    "rust_analyzer"
 				},
 			})
 		end,
