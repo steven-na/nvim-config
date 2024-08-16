@@ -6,12 +6,12 @@ return { -- Useful plugin to show you pending keybinds.
 
 		-- Document existing key chains
 		require("which-key").add({
-			{ "<leader>c", group = "[C] Code" },
-			{ "<leader>d", group = "[D] Symbol find" },
-			{ "<leader>r", group = "[R] Debug" },
-            { "<leader>f", group = "[F] Format" },
-			{ "<leader>s", group = "[S] Switch" },
-			{ "<leader>t", group = "[T] Telescope" },
+			{ "<leader>c", group = "Code" },
+			{ "<leader>d", group = "Symbol find" },
+			{ "<leader>r", group = "Debug" },
+            { "<leader>f", group = "Format" },
+			{ "<leader>s", group = "Bufferline" },
+			{ "<leader>t", group = "Telescope" },
 			-- { "<leader>w", group = "[W]orkspack" },
 			-- { "<leader>t", group = "[T]oggle" },
 			-- { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
