@@ -12,6 +12,7 @@ return { -- Useful plugin to show you pending keybinds.
             { "<leader>f", group = "Format" },
 			{ "<leader>s", group = "Bufferline" },
 			{ "<leader>t", group = "Telescope" },
+			{ "<leader>p", group = "Swap function/param" },
 			-- { "<leader>w", group = "[W]orkspack" },
 			-- { "<leader>t", group = "[T]oggle" },
 			-- { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
