@@ -9,6 +9,12 @@ vim.wo.wrap = false
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Unbind Insert key in all modes
+vim.api.nvim_set_keymap('n', '<Insert>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Insert>', '<Nop>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', 'S', '<Nop>', { noremap = true, silent = true })
+
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics" })
@@ -25,6 +31,8 @@ vim.opt.timeoutlen = 300
 vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+vim.opt.swapfile = false
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
