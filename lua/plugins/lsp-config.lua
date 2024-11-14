@@ -12,13 +12,12 @@ return {
 				ensure_installed = {
 					"stylua", -- Lua
 					"black", -- Python
-					"debugpy",
-					"eslint_d",  -- Javascript
+					"eslint_d", -- Javascript
 					"prettierd",
 					"gofumpt", -- Golang
 					"goimports-reviser",
-                    "golines",
-                    "codelldb", -- DAP
+					"golines",
+					"codelldb", -- DAP
 				},
 				run_on_start = true,
 				start_delay = 3000,
@@ -74,7 +73,7 @@ return {
 					"lua_ls",
 					"pylsp",
 					"gopls",
-                    "rust_analyzer"
+					"rust_analyzer",
 				},
 			})
 		end,
