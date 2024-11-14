@@ -7,9 +7,6 @@ return {
 			options = {
 				diagnostics = "nvim_lsp",
 				separator_style = "slant",
-				indicator = {
-					style = "underline",
-				},
 				themable = true,
 				offsets = {
 					{
