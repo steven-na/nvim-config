@@ -62,7 +62,10 @@ return {
 			vim.keymap.set("n", "<leader>dd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
 
-			lspconfig.pylsp.setup({})
+			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+				cmd = { "C:/Users/blake/AppData/Local/nvim-data/mason/bin/pylsp.CMD" },
+			})
 		end,
 	},
 	{
