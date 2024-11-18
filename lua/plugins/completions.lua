@@ -8,7 +8,38 @@ return {
 		},
 		config = function()
 			local cmp = require("cmp")
+			local compare = require("cmp.config.compare")
 			require("luasnip.loaders.from_vscode").lazy_load()
+
+			local icons = {
+				Text = "󰉿",
+				Method = "󰆧",
+				Function = "󰊕",
+				Constructor = "",
+				Field = "󰜢",
+				Variable = "󰀫",
+				Class = "󰠱",
+				Interface = "",
+				Module = "",
+				Property = "󰜢",
+				Unit = "󰑭",
+				Value = "󰎠",
+				Enum = "",
+				Keyword = "󰌋",
+				Snippet = "",
+				Color = "󰏘",
+				File = "󰈙",
+				Reference = "󰈇",
+				Folder = "󰉋",
+				EnumMember = "",
+				Constant = "󰏿",
+				Struct = "󰙅",
+				Event = "",
+				Operator = "󰆕",
+				TypeParameter = "",
+			}
+
+			vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#C792EA", italic = true })
 
 			cmp.setup({
 				experimental = {
@@ -37,9 +68,31 @@ return {
 						require("luasnip").lsp_expand(args.body)
 					end,
 				},
+				sorting = {
+					comparators = {
+						compare.exact,
+						compare.recently_used,
+					},
+				},
 				window = {
-					completion = cmp.config.window.bordered(),
+					completion = cmp.config.window.bordered({
+						side_padding = 0,
+						col_offset = -2,
+					}),
 					documentation = cmp.config.window.bordered(),
+				},
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					format = function(_, vim_item)
+						-- vim_item.kind = (icons[vim_item.kind] or "") .. " " .. vim_item.kind
+
+						local kind = vim_item.kind
+
+						vim_item.kind = icons[kind] or ""
+						vim_item.menu = " (" .. kind .. ") "
+
+						return vim_item
+					end,
 				},
 			})
 			local ls = require("luasnip")
