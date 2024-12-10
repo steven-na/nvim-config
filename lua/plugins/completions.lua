@@ -40,6 +40,7 @@ return {
 			}
 
 			vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#C792EA", italic = true })
+			-- vim.api.nvim_set_hl(0, "CmpItemKind", { reverse = true })
 
 			cmp.setup({
 				experimental = {
@@ -76,6 +77,8 @@ return {
 				},
 				window = {
 					completion = cmp.config.window.bordered({
+						border = "double",
+						winhighlight = "Normal:Normal,FloatBorder:Normal,Search:NONE",
 						side_padding = 0,
 						col_offset = -2,
 					}),
