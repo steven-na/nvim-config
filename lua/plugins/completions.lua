@@ -92,7 +92,7 @@ return {
 						local kind = vim_item.kind
 
 						vim_item.kind = icons[kind] or ""
-						vim_item.menu = " (" .. kind .. ") "
+						vim_item.menu = " (" .. (kind or "Unknown") .. ") "
 
 						return vim_item
 					end,
