@@ -1,4 +1,4 @@
-vim.o.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
+-- vim.o.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
 
 vim.o.expandtab = true
 vim.o.tabstop = 4
@@ -22,25 +22,24 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics" })
 
--- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
-vim.keymap.set("n", "<leader>C", function()
-	local showtabline = vim.o.showtabline
-	if showtabline > 0 then
-		vim.o.showtabline = 0 -- Hide bufferline
-		vim.o.laststatus = 0 -- Disable the status line entirely
-		require("lualine").hide({ unhide = false }) -- Hide lualine
-	else
-		vim.o.showtabline = 2 -- Show bufferline
-		vim.o.laststatus = 2 -- Enable the status line
-		require("bufferline").setup() -- Reinitialize bufferline
-		require("lualine").hide({ unhide = true }) -- Show lualine
-	end
-end, { desc = "Zen Mode" })
+-- vim.keymap.set("n", "<leader>C", function()
+-- 	local showtabline = vim.o.showtabline
+-- 	if showtabline > 0 then
+-- 		vim.o.showtabline = 0 -- Hide bufferline
+-- 		vim.o.laststatus = 0 -- Disable the status line entirely
+-- 		require("lualine").hide({ unhide = false }) -- Hide lualine
+-- 	else
+-- 		vim.o.showtabline = 2 -- Show bufferline
+-- 		vim.o.laststatus = 2 -- Enable the status line
+-- 		require("bufferline").setup() -- Reinitialize bufferline
+-- 		require("lualine").hide({ unhide = true }) -- Show lualine
+-- 	end
+-- end, { desc = "Zen Mode" })
 
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300

@@ -7,12 +7,14 @@ return { -- Useful plugin to show you pending keybinds.
 		-- Document existing key chains
 		require("which-key").add({
 			{ "<leader>c", group = "Code" },
+			{ "<leader>g", group = "Git" },
 			{ "<leader>d", group = "Symbol find" },
-			{ "<leader>r", group = "Debug" },
-            { "<leader>f", group = "Format" },
+			-- { "<leader>f", group = "Format" },
 			{ "<leader>s", group = "Bufferline" },
 			{ "<leader>t", group = "Telescope" },
-			{ "<leader>p", group = "Swap function/param" },
+			-- { "<leader>p", group = "Swap function/param" },
+			{ "<leader>S", group = "Snacks commands" },
+
 			-- { "<leader>w", group = "[W]orkspack" },
 			-- { "<leader>t", group = "[T]oggle" },
 			-- { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
