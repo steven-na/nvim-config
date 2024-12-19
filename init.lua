@@ -1,4 +1,6 @@
--- vim.o.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.o.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
+end
 
 vim.o.expandtab = true
 vim.o.tabstop = 4
@@ -60,29 +62,29 @@ vim.opt.scrolloff = 10
 local sec = vim.diagnostic.severity
 
 vim.diagnostic.config({
-	virtual_text = { prefix = "" },
-	signs = { text = { [sec.ERROR] = "󰅙", [sec.WARN] = "", [sec.INFO] = "󰋼", [sec.HINT] = "󰌵" } },
-	underline = true,
-	float = { border = "single" },
+    virtual_text = { prefix = "" },
+    signs = { text = { [sec.ERROR] = "󰅙", [sec.WARN] = "", [sec.INFO] = "󰋼", [sec.HINT] = "󰌵" } },
+    underline = true,
+    float = { border = "single" },
 })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-	spec = { { import = "plugins" } },
-	install = { colorscheme = { "nord" } },
-	checker = { enabled = true },
+    spec = { { import = "plugins" } },
+    install = { colorscheme = { "nord" } },
+    checker = { enabled = true },
 })
